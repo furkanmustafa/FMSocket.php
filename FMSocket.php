@@ -137,7 +137,7 @@ class Socket {
     // MSG_DONTWAIT         With this flag set, the function returns even if it would normally have blocked.
     
     function receive(&$buf, $len = 4096, $flags = 0) {
-        $result = socket_recv($this->resource, is_a($buf, 'StringBuffer') ? $buf->stash : $buf, $len, $flags);
+        $result = socket_recv($this->resource, $buf, $len, $flags);
     }
     
     // MSG_OOB              Send OOB (out-of-band) data.
@@ -147,20 +147,20 @@ class Socket {
     
     function send($buf, $len = null, $flags = 0) {
         if ($len === null)
-            $len = is_a($buf, 'StringBuffer') ? $buf->length() : strlen($buf);
+            $len = strlen($buf);
         
-        return socket_send($this->resource, is_a($buf, 'StringBuffer') ? $buf->stash : $buf, $len, $flags);
+        return socket_send($this->resource, $buf, $len, $flags);
     }
     
     function sendTo($address, $buf, $len = null, $flags = 0, $port = 0) {
         if ($len === null)
-            $len = is_a($buf, 'StringBuffer') ? $buf->length() : strlen($buf);
+            $len = strlen($buf);
         
         if ($port === 0 && strpos($address, ':') !== false) {
             list($address, $port) = explode(':', $address);
         }
         
-        return socket_sendto($this->resource, is_a($buf, 'StringBuffer') ? $buf->stash : $buf, $len, $flags, $address, $port);
+        return socket_sendto($this->resource, $buf, $len, $flags, $address, $port);
     }
     
     function accept() {
