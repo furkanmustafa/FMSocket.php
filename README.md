@@ -32,8 +32,10 @@ $server->listen('/Users/furkan/test.sock');
 
 ### TODO
  - [X] Basic implementation for multiple TCP/UDS connections with callbacks
+ - [ ] Detect Disconnect
  - [ ] Libev Support
  - [ ] Pipelining
+
 ```php
     $parser = new HTTPParser();
     $socket->pipe($parser);
