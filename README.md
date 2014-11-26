@@ -29,3 +29,17 @@ Simple Unix Domain Sockets Server:
 $server = FMSocket::UnixSocketServer();
 $server->listen('/Users/furkan/test.sock');
 ```
+
+### TODO
+ - [X] Basic implementation for multiple TCP/UDS connections with callbacks
+ - [ ] Libev Support
+ - [ ] Pipelining
+```php
+    $parser = new HTTPParser();
+    $socket->pipe($parser);
+```
+ 
+### LICENSE
+
+GPLv3, See [LICENSE](LICENSE)
+
