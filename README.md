@@ -7,7 +7,7 @@ Simple TCP Server:
 ```php
 $server = FMSocket::TCPStreamServer();
 $server->listen('localhost', '8192');
-$server->queue(Socket::QUEUE_LISTEN, function($serverSocket, $clientSocket) {
+$server->queue(FMSocket::QUEUE_LISTEN, function($serverSocket, $clientSocket) {
     static $connections = 0;
     $connections++;
     echo "New Connection! Greeting..\n";
