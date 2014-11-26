@@ -1,6 +1,6 @@
 <?php
 
-class Socket {
+class FMSocket {
 
     public $resource;
     static $Sockets = [];
